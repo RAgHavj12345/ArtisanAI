@@ -3,17 +3,16 @@
 import React, { useState } from 'react';
 import { BarChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-// --- MOCK DATA ---
-// In a real application, this data would come from your Firestore database.
+// --- MOCK DATA (Now with real product images!) ---
 const mockProducts = [
-  { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: 'https://placehold.co/400x400/A88C7D/FFFFFF?text=Vase' },
-  { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: 'https://placehold.co/400x400/4E4E4E/FFFFFF?text=Box' },
-  { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: 'https://placehold.co/400x400/5B8266/FFFFFF?text=Pottery' },
-  { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: 'https://placehold.co/400x400/C9A87C/FFFFFF?text=Baskets' },
-  { id: 5, name: 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: 'https://placehold.co/400x400/B59A7A/FFFFFF?text=Plate' },
-  { id: 6, name: 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: 'https://placehold.co/400x400/9F7E69/FFFFFF?text=Mugs' },
-  { id: 7, name: 'Painted Terracotta Pot', artisan: 'Artisan Neaw', price: 1590, imageUrl: 'https://placehold.co/400x400/D28A5B/FFFFFF?text=Pot' },
-  { id: 8, name: 'Embroidered Silk Scarf', artisan: 'Artisan Buelee', price: 1690, imageUrl: 'https://placehold.co/400x400/6D8781/FFFFFF?text=Scarf' },
+  { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: 'https://images.unsplash.com/photo-1578749596058-633a41b5591a?q=80&w=1887&auto=format&fit=crop' },
+  { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: 'https://images.unsplash.com/photo-1590138287899-0e36577a42e1?q=80&w=1887&auto=format&fit=crop' },
+  { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: 'https://images.unsplash.com/photo-1552069999-52d3a1f7a28e?q=80&w=1887&auto=format&fit=crop' },
+  { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: 'https://images.unsplash.com/photo-1587483167512-3b3204963e79?q=80&w=1887&auto=format&fit=crop' },
+  { id: 5, name: 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: 'https://images.unsplash.com/photo-1610484869803-4f5aa7212450?q=80&w=1887&auto=format&fit=crop' },
+  { id: 6, name: 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: 'https://images.unsplash.com/photo-1621213264026-c21d80760431?q=80&w=1887&auto=format&fit=crop' },
+  { id: 7, name: 'Painted Terracotta Pot', artisan: 'Artisan Neaw', price: 1590, imageUrl: 'https://images.unsplash.com/photo-1590319119933-39d2c55e4e8a?q=80&w=1887&auto=format&fit=crop' },
+  { id: 8, name: 'Embroidered Silk Scarf', artisan: 'Artisan Buelee', price: 1690, imageUrl: 'https://images.unsplash.com/photo-1616429391517-eb4a4a8b23f2?q=80&w=1887&auto=format&fit=crop' },
 ];
 
 const salesData = [
@@ -105,3 +104,4 @@ export default function Home() {
         </div>
     );
 }
+
