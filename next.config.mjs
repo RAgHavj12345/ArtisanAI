@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // This line fixed the Vercel build error
+  // This line is for the Vercel build process
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // This new section will approve the image domain and fix the images
+  // This section correctly configures the allowed image domains
   images: {
     remotePatterns: [
       {
