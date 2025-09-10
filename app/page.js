@@ -1,7 +1,7 @@
 "use client"; // This directive is essential for Next.js
 
 import React, { useState } from 'react';
-// import Image from 'next/image'; // We will use the standard img tag to avoid build issues.
+import Image from 'next/image'; // <-- Added import
 import { BarChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 // --- MOCK DATA ---
@@ -9,9 +9,9 @@ const mockProducts = [
   { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: 'https://images.unsplash.com/photo-1578749596058-633a41b5591a?q=80&w=1887&auto=format&fit=crop' },
   { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: 'https://images.unsplash.com/photo-1590138287899-0e36577a42e1?q=80&w=1887&auto=format&fit=crop' },
   { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: 'https://images.unsplash.com/photo-1552069999-52d3a1f7a28e?q=80&w=1887&auto=format&fit=crop' },
-  { id: 4, 'name': 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: 'https://images.unsplash.com/photo-1587483167512-3b3204963e79?q=80&w=1887&auto=format&fit=crop' },
-  { id: 5, 'name': 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: 'https://images.unsplash.com/photo-1610484869803-4f5aa7212450?q=80&w=1887&auto=format&fit=crop' },
-  { id: 6, 'name': 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: 'https://images.unsplash.com/photo-1621213264026-c21d80760431?q=80&w=1887&auto=format&fit=crop' },
+  { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: 'https://images.unsplash.com/photo-1587483167512-3b3204963e79?q=80&w=1887&auto=format&fit=crop' },
+  { id: 5, name: 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: 'https://images.unsplash.com/photo-1610484869803-4f5aa7212450?q=80&w=1887&auto=format&fit=crop' },
+  { id: 6, name: 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: 'https://images.unsplash.com/photo-1621213264026-c21d80760431?q=80&w=1887&auto=format&fit=crop' },
   { id: 7, name: 'Painted Terracotta Pot', artisan: 'Artisan Neaw', price: 1590, imageUrl: 'https://images.unsplash.com/photo-1590319119933-39d2c55e4e8a?q=80&w=1887&auto=format&fit=crop' },
   { id: 8, name: 'Embroidered Silk Scarf', artisan: 'Artisan Buelee', price: 1690, imageUrl: 'https://images.unsplash.com/photo-1616429391517-eb4a4a8b23f2?q=80&w=1887&auto=format&fit=crop' },
 ];
@@ -76,14 +76,36 @@ const AddProductPage = () => {
 };
 
 const ProductDiscoveryPage = () => {
-    return ( <div className="bg-gray-50 p-4 sm:p-8"><div className="max-w-7xl mx-auto"><h1 className="text-center text-4xl font-bold text-gray-800 mb-4">Discover Unique Crafts</h1><p className="text-center text-lg text-gray-500 mb-12">Recommended For You, by Artisans Around the World</p><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">{mockProducts.map(product => ( <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300"><div className="h-56 overflow-hidden relative">
-        {/* THIS IS THE CORRECTED PART */}
-        <img 
-            src={product.imageUrl} 
-            alt={product.name} 
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-    </div><div className="p-5"><h3 className="text-lg font-semibold text-gray-800 truncate">{product.name}</h3><p className="text-sm text-gray-500 mb-3">{product.artisan}</p><p className="text-xl font-bold text-gray-900">${(product.price / 100).toFixed(2)}</p><button className="mt-4 w-full bg-gray-800 text-white font-semibold py-2 rounded-lg hover:bg-gray-900 transition-colors">View Product</button></div></div> ))}</div></div></div> );
+    return (
+        <div className="bg-gray-50 p-4 sm:p-8">
+            <div className="max-w-7xl mx-auto">
+                <h1 className="text-center text-4xl font-bold text-gray-800 mb-4">Discover Unique Crafts</h1>
+                <p className="text-center text-lg text-gray-500 mb-12">Recommended For You, by Artisans Around the World</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {mockProducts.map(product => (
+                        <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300">
+                            <div className="h-56 overflow-hidden relative">
+                                <Image
+                                    src={product.imageUrl}
+                                    alt={product.name}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 25vw"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <div className="p-5">
+                                <h3 className="text-lg font-semibold text-gray-800 truncate">{product.name}</h3>
+                                <p className="text-sm text-gray-500 mb-3">{product.artisan}</p>
+                                <p className="text-xl font-bold text-gray-900">${(product.price / 100).toFixed(2)}</p>
+                                <button className="mt-4 w-full bg-gray-800 text-white font-semibold py-2 rounded-lg hover:bg-gray-900 transition-colors">View Product</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 const AnalyticsDashboardPage = () => {
@@ -111,4 +133,3 @@ export default function Home() {
         </div>
     );
 }
-
