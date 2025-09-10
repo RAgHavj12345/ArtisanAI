@@ -4,7 +4,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // This new section will fix the images not loading
+  // This new section will approve the image domain and fix the images
   images: {
     remotePatterns: [
       {
