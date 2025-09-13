@@ -6,7 +6,7 @@ import { BarChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 
 // --- MOCK DATA (Using your local images) ---
 const mockProducts = [
-  { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: '/images/Painted Terracotta Pot.jpg' }, // Note: Using a suitable image you provided.
+  { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: '/images/Painted Terracotta Pot.png' }, 
   { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: '/images/Intricate Wooden Box.png' },
   { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: '/images/Glazed Pottery Set.png' },
   { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: '/images/Woven Bamboo Baskets.png' },
