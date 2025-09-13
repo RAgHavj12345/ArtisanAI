@@ -7,13 +7,13 @@ import { BarChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 // --- MOCK DATA (Using your local images) ---
 const mockProducts = [
   { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: '/images/Painted Terracotta Pot.jpg' }, // Note: Using a suitable image you provided.
-  { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: '/images/Intricate Wooden Box.jpg' },
-  { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: '/images/Glazed Pottery Set.jpg' },
-  { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: '/images/Woven Bamboo Baskets.jpg' },
-  { id: 5, name: 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: '/images/Decorative Clay Plate.jpg' },
-  { id: 6, name: 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: '/images/Carved Wooden Mugs.jpg' },
-  { id: 7, name: 'Painted Terracotta Pot', artisan: 'Artisan Neaw', price: 1590, imageUrl: '/images/Painted Terracotta Pot.jpg' },
-  { id: 8, name: 'Embroidered Silk Scarf', artisan: 'Artisan Buelee', price: 1690, imageUrl: '/images/Embroidered Silk Scarf.jpg' },
+  { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: '/images/Intricate Wooden Box.png' },
+  { id: 3, name: 'Glazed Pottery Set', artisan: 'Artisan Brape', price: 1490, imageUrl: '/images/Glazed Pottery Set.png' },
+  { id: 4, name: 'Woven Bamboo Baskets', artisan: 'Artisan Baell', price: 7590, imageUrl: '/images/Woven Bamboo Baskets.png' },
+  { id: 5, name: 'Decorative Clay Plate', artisan: 'Artisan Sopch', price: 7990, imageUrl: '/images/Decorative Clay Plate.png' },
+  { id: 6, name: 'Carved Wooden Mugs', artisan: 'Artisan Prape', price: 1590, imageUrl: '/images/Carved Wooden Mugs.png' },
+  { id: 7, name: 'Painted Terracotta Pot', artisan: 'Artisan Neaw', price: 1590, imageUrl: '/images/Painted Terracotta Pot.png' },
+  { id: 8, name: 'Embroidered Silk Scarf', artisan: 'Artisan Buelee', price: 1690, imageUrl: '/images/Embroidered Silk Scarf.png' },
 ];
 
 const salesData = [
