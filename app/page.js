@@ -1,10 +1,10 @@
-"use client"; // This directive is essential for Next.js
+"use client"; 
 
 import React, { useState } from 'react';
-// The 'next/image' import was causing a compilation error, so we will use the standard <img> tag.
+
 import { BarChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-// --- MOCK DATA (Using your local images) ---
+
 const mockProducts = [
   { id: 1, name: 'Hand-Painted Ceramic Vase', artisan: 'Artisan Popck', price: 1490, imageUrl: '/images/Hand-Painted Ceramic Vase.png' }, 
   { id: 2, name: 'Intricate Wooden Box', artisan: 'Artisan Crape', price: 2690, imageUrl: '/images/Intricate Wooden Box.png' },
@@ -34,11 +34,11 @@ const demandForecastData = [
   { name: 'Scarves', forecast: 55 },
 ];
 
-// --- SVG ICONS ---
+// --- svgICONS ---
 const UploadIcon = () => ( <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg> );
 const AppLogo = () => ( <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> );
 
-// --- PAGE COMPONENTS ---
+// --- pagecOMPONENTS ---
 const AddProductPage = () => {
     const [productName, setProductName] = useState('');
     const [productImage, setProductImage] = useState(null);
@@ -78,9 +78,26 @@ const AddProductPage = () => {
         value={productName} 
         onChange={(e) => setProductName(e.target.value)} 
         placeholder="e.g., Hand-painted clay vase" 
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow text-gray-900" // <-- FIXED: Added text-gray-900
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow text-black" // <-- FIXED: Changed text-gray-900 to text-black for better visibility
     />
-    </div><div><label className="block text-sm font-semibold text-gray-700 mb-2">Upload Product Image</label><div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"><div className="space-y-1 text-center">{imagePreview ? ( <img src={imagePreview} alt="Product preview" className="mx-auto h-32 w-32 object-cover rounded-md" /> ) : ( <UploadIcon /> )}<div className="flex text-sm text-gray-600"><label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"><span>Upload a file</span><input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleImageChange} accept="image/*"/></label><p className="pl-1">or drag and drop</p></div><p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p></div></div></div><button onClick={handleGenerateListing} disabled={isLoading} className="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">{isLoading && <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>}{isLoading ? 'Generating...' : 'Generate Listing with AI ✨'}</button></div><div className={`p-6 rounded-lg transition-opacity duration-500 ${generatedContent ? 'bg-gray-100 opacity-100' : 'bg-gray-50 opacity-50'}`}><h2 className="text-xl font-semibold text-gray-800 mb-4">AI Suggestions</h2>{generatedContent ? ( <div className="space-y-5"><div><h3 className="font-semibold text-gray-700">AI-Generated Description</h3><p className="text-gray-600 mt-1 text-sm bg-white p-3 rounded-md shadow-sm">{generatedContent.description}</p></div><div><h3 className="font-semibold text-gray-700">AI-Suggested Price</h3><p className="text-gray-800 mt-1 text-lg font-bold bg-white p-3 rounded-md shadow-sm">{generatedContent.priceSuggestion}</p></div><div><h3 className="font-semibold text-gray-700">AI-Generated Tags</h3><div className="flex flex-wrap gap-2 mt-2">{generatedContent.tags.map(tag => ( <span key={tag} className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span> ))}</div></div></div> ) : ( <div className="text-center text-gray-500 pt-16"><p>Your AI-generated content will appear here.</p></div> )}</div></div></div></div> );
+    </div><div><label className="block text-sm font-semibold text-gray-700 mb-2">Upload Product Image</label><div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"><div className="space-y-1 text-center">
+        {/* --- Ui --- */}
+        {imagePreview ? ( 
+            <img src={imagePreview} alt="Product preview" className="mx-auto h-32 w-32 object-cover rounded-md" /> 
+        ) : ( 
+            <>
+                <UploadIcon />
+                <div className="flex text-sm text-gray-600">
+                    <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                        <span>Upload a file</span>
+                        <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleImageChange} accept="image/*"/>
+                    </label>
+                    <p className="pl-1">or drag and drop</p>
+                </div>
+                <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+            </>
+        )}
+    </div></div></div><button onClick={handleGenerateListing} disabled={isLoading} className="w-full bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 disabled:bg-indigo-300 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">{isLoading && <svg xmlns="http://www.w3.org/2000/svg" className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>}{isLoading ? 'Generating...' : 'Generate Listing with AI ✨'}</button></div><div className={`p-6 rounded-lg transition-opacity duration-500 ${generatedContent ? 'bg-gray-100 opacity-100' : 'bg-gray-50 opacity-50'}`}><h2 className="text-xl font-semibold text-gray-800 mb-4">AI Suggestions</h2>{generatedContent ? ( <div className="space-y-5"><div><h3 className="font-semibold text-gray-700">AI-Generated Description</h3><p className="text-gray-600 mt-1 text-sm bg-white p-3 rounded-md shadow-sm">{generatedContent.description}</p></div><div><h3 className="font-semibold text-gray-700">AI-Suggested Price</h3><p className="text-gray-800 mt-1 text-lg font-bold bg-white p-3 rounded-md shadow-sm">{generatedContent.priceSuggestion}</p></div><div><h3 className="font-semibold text-gray-700">AI-Generated Tags</h3><div className="flex flex-wrap gap-2 mt-2">{generatedContent.tags.map(tag => ( <span key={tag} className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span> ))}</div></div></div> ) : ( <div className="text-center text-gray-500 pt-16"><p>Your AI-generated content will appear here.</p></div> )}</div></div></div></div> );
 };
 
 const ProductDiscoveryPage = () => {
@@ -101,8 +118,7 @@ const AnalyticsDashboardPage = () => {
     return ( <div className="bg-gray-100 p-4 sm:p-8 min-h-screen"><div className="max-w-7xl mx-auto"><h1 className="text-3xl font-bold text-gray-800 mb-8">Artisan Analytics</h1><div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"><StatCard title="Total Revenue" value="$72,540" change="+12.5% this month" icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>} /><StatCard title="Top Selling Product" value="$7,790" change="Earthenware Mugs" icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>}/><StatCard title="New Orders" value="182" change="+5% this week" icon={<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>}/></div><div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8"><div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg"><h3 className="font-semibold text-gray-700 mb-4">Sales & Revenue Overview</h3><ResponsiveContainer width="100%" height={300}><LineChart data={salesData}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="name" /><YAxis /><Tooltip /><Legend /><Line type="monotone" dataKey="Sales" stroke="#8884d8" activeDot={{ r: 8 }} /><Line type="monotone" dataKey="Revenue" stroke="#82ca9d" /></LineChart></ResponsiveContainer></div><div className="bg-white p-6 rounded-2xl shadow-lg"><h3 className="font-semibold text-gray-700 mb-4">Demand Forecast</h3><ResponsiveContainer width="100%" height={300}><BarChart data={demandForecastData} layout="vertical"><CartesianGrid strokeDasharray="3 3" /><XAxis type="number" /><YAxis type="category" dataKey="name" width={60} /><Tooltip /><Bar dataKey="forecast" fill="#8884d8" /></BarChart></ResponsiveContainer></div></div></div></div> );
 };
 
-// --- MAIN APP CONTROLLER ---
-
+// --- appCONTROLLER ---
 export default function Home() {
     const [currentPage, setCurrentPage] = useState('addProduct'); // 'addProduct', 'discover', 'analytics'
     const renderPage = () => {
