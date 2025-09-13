@@ -4,12 +4,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // This section correctly configures the allowed image domains
+  // This section is updated for the new, reliable image provider
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'picsum.photos',
       },
     ],
   },
