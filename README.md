@@ -79,7 +79,7 @@ Our prototype was built using a modern, integrated, and highly scalable tech sta
     ```bash
     npm run dev
     ```
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+5. Open [http://localhost:3000](http://localhost:) in your browser to see the application.
 
 ---
 
