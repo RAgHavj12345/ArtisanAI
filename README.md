@@ -69,7 +69,7 @@ Our prototype was built using a modern, integrated, and highly scalable tech sta
     ```
 2.  **Navigate into the project directory:**
     ```bash
-    cd artisan-ai-app 
+    cd ArtisanAI
     ```
 3.  **Install the necessary packages:**
     ```bash
